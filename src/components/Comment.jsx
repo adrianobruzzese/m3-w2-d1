@@ -18,7 +18,6 @@ const Comment = ({ details }) => {
     }
   };
 
-  // Generates stars based on the rating
   const generateRatingStars = (rating) => "⭐".repeat(rating);
 
   return (

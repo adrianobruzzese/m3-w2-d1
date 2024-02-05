@@ -4,7 +4,7 @@ import { Button, Form, FormGroup } from 'react-bootstrap';
 class AddComment extends Component {
   state = {
     commentText: "",
-    rate: 0,
+    rate: 1,
   };
 
   handleInputChange = (event) => {
@@ -37,9 +37,8 @@ class AddComment extends Component {
         alert("Commento inviato!");
         const newComment = await response.json();
         onCommentAdded(newComment);
-        this.setState({ commentText: "", rate: 0 });
+        this.setState({ commentText: "", rate: 1 });
       } else {
-        // Handle server errors or invalid responses
         alert("Failed to submit comment. Please try again.");
       }
     } catch (error) {
