@@ -1,39 +1,35 @@
-import { Button, ListGroup } from 'react-bootstrap'
+import React from 'react';
+import { Button, ListGroup } from 'react-bootstrap';
 
-const SingleComment = ({ comment }) => {
-  const deleteComment = async (asin) => {
+const CommentItem = ({ review }) => {
+  const removeReview = async (reviewId) => {
     try {
-      let response = await fetch(
-        'https://striveschool-api.herokuapp.com/api/comments/' + asin,
-        {
-          method: 'DELETE',
-          headers: {
-            Authorization: 'Bearer inserisci-qui-il-tuo-token',
-          },
-        }
-      )
-      if (response.ok) {
-        alert('La recensione è stata elimata!')
+      const result = await fetch(`https://striveschool-api.herokuapp.com/api/comments/${reviewId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWMwZmFiMmUwODVmYTAwMTk2MzFhZDQiLCJpYXQiOjE3MDcxNDU5MDYsImV4cCI6MTcwODM1NTUwNn0.S5V-6ZHXbTN9uE9w8xihCLELO-TNiwMItmDVNE3cFrM', 
+        },
+      });
+      if (result.ok) {
+        alert('Review successfully deleted!');
       } else {
-        throw new Error('La recensione non è stata eliminata!')
+        throw new Error('Failed to delete the review.');
       }
     } catch (error) {
-      alert(error)
+      console.error('Deletion error:', error);
+      alert('Error deleting review: ' + error.message);
     }
-  }
+  };
 
   return (
     <ListGroup.Item>
-      {comment.comment}
-      <Button
-        variant="danger"
-        className="ms-2"
-        onClick={() => deleteComment(comment._id)}
-      >
-        Elimina
+      {review.comment}
+      <Button variant="outline-danger" className="float-end" onClick={() => removeReview(review._id)}>
+        Delete
       </Button>
     </ListGroup.Item>
-  )
-}
+  );
+};
 
-export default SingleComment
+export default CommentItem;
+

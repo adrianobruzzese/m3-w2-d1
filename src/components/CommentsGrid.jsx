@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Row } from 'react-bootstrap';
 import BooksDisplay from './BookList'; 
-import FantasyBooks from '../books/fantasy.json';
+import FantasyBooks from '../data/fantasy.json';
+import HistoryBooks from '../data/history.json';
+import HorrorBooks from '../data/horror.json';
+import RomanceBooks from '../data/romance.json';
+import SciFiBooks from '../data/scifi.json';
 import ReviewsSection from './CommentArea'; 
 
 class CommentsGrid extends Component {
