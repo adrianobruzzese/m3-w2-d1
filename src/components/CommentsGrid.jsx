@@ -19,7 +19,7 @@ class CommentsGrid extends Component {
         <Row className="justify-content-center">
           {/* Lista libri */}
           <BooksDisplay books={FantasyBooks} onBookSelect={this.selectBook} />
-          {/* Comment */}
+          {/* Commento */}
           <ReviewsSection bookId={this.state.activeBook} />
         </Row>
       </div>

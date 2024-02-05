@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { ListGroup, Col } from 'react-bootstrap';
-import ReviewList from './CommentList'; // Renamed for a fresh perspective
-import ReviewForm from './AddComment'; // Renamed for consistency
+import ReviewList from './CommentList'; 
+import ReviewForm from './AddComment';
 
 class ReviewSection extends Component {
   state = {
-    reviews: [], // Renamed for clarity
-    isLoading: false, // Renamed for consistency
-    fetchError: null, // Renamed to be more descriptive
+    reviews: [],
+    isLoading: false,
+    fetchError: null, 
   };
 
   componentDidMount() {
